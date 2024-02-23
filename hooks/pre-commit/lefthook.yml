@@ -1,0 +1,4 @@
+pre-commit:
+  scripts:
+    "check_merge_conflict.py":
+      runner: python3

@@ -1,0 +1,12 @@
+name: Internal - Common Continuous Integration tasks
+
+on:
+  workflow_call:
+
+jobs:
+
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "This is a placeholder job, please implement CI."
