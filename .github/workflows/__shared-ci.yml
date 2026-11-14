@@ -3,6 +3,9 @@ name: Internal - Common Continuous Integration tasks
 on:
   workflow_call:
 
+permissions:
+  contents: read
+
 jobs:
 
   placeholder:
