@@ -1,8 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-
 ---
+
+# Bug report
 
 **Describe the bug**
 A clear and concise description of what the bug is.
@@ -16,11 +17,13 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Kubernetes (please complete the following information):**
- - Kubernetes version [`kubectl version --short`]
+**Environment**
 
-**HRE pod logs**
-`kubectl logs hre-xxxxxxx`
+- Operating system:
+- Lefthook version (`lefthook version`):
+
+**Hook output**
+Paste the failing hook command and its output.
 
 **Additional context**
 Add any other context about the problem here.

@@ -1,15 +1,51 @@
 # .github/dependabot.yml
 version: 2
 updates:
-
   - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: build
+      include: scope
     directory: "/"
     open-pull-requests-limit: 20
     groups:
       github-actions-dependencies:
         patterns:
-          - '*'
+          - "*"
     schedule:
       interval: "weekly"
       day: friday
-      time: '04:00'
+      time: "04:00"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: build
+      include: scope
+    schedule:
+      interval: "weekly"
+      day: friday
+      time: "04:10"
+    groups:
+      docker-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: build
+      include: scope
+    schedule:
+      interval: "weekly"
+      day: friday
+      time: "04:30"
+    groups:
+      devcontainer-dependencies:
+        patterns:
+          - "*"
