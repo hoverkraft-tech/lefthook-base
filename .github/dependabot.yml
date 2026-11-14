@@ -1,15 +1,19 @@
 # .github/dependabot.yml
 version: 2
 updates:
-
   - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: build
+      include: scope
     directory: "/"
     open-pull-requests-limit: 20
     groups:
       github-actions-dependencies:
         patterns:
-          - '*'
+          - "*"
     schedule:
       interval: "weekly"
       day: friday
-      time: '04:00'
+      time: "04:00"

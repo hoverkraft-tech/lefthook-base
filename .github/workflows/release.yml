@@ -3,22 +3,27 @@ name: 🚀 Release
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   check-branches:
     name: Check branches
     runs-on: self-hosted
     steps:
       - name: Check branch
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          if [[ "${{ github.ref_name }}" != "${{ github.event.repository.default_branch }}" ]]; then
-            echo "This action can only be run on the ${{ github.event.repository.default_branch }} branch"
+          if [[ "$GITHUB_REF_NAME" != "$DEFAULT_BRANCH" ]]; then
+            echo "This action can only be run on the $DEFAULT_BRANCH branch"
             exit 1
           fi
 
   ci:
     needs: check-branches
     name: Continuous Integration
-    uses: ./.github/workflows/__shared-ci.yml
+    uses: $/.github/workflows/__shared-ci.yml
     permissions:
       contents: read
       id-token: write
@@ -36,9 +41,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - id: update_release_draft
-        uses: release-drafter/release-drafter@v6
+        uses: release-drafter/release-drafter@978bb0b30c5ee8cdd332ced253758157150d43f0 # v7.10.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           publish: true
-          disable-autolabeler: true
