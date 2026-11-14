@@ -1,10 +1,4 @@
-# lefthook.yml
-#
 remotes:
-  - git_url: git@github.com:hoverkraft-tech/lefthook-base
-    ref: 0.0.1
+  - git_url: https://github.com/hoverkraft-tech/lefthook-base
     configs:
-      - hooks/prepare-commit-msg
-      - hooks/commit-msg
-      - hooks/pre-commit
-      - hooks/pre-push
+      - hooks/pre-commit/lefthook.yml
