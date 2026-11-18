@@ -17,4 +17,4 @@ jobs:
       security-events: write
       statuses: write
     with:
-      codeql-languages: ""
+      codeql-languages: '["actions"]'
