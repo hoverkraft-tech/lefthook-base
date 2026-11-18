@@ -4,7 +4,7 @@ Reuse Hoverkraft Git hooks in your projects with Lefthook.
 
 [![Continuous Integration](https://github.com/hoverkraft-tech/lefthook-base/actions/workflows/main-ci.yml/badge.svg)](https://github.com/hoverkraft-tech/lefthook-base/actions/workflows/main-ci.yml)
 [![Release](https://img.shields.io/github/v/release/hoverkraft-tech/lefthook-base)](https://github.com/hoverkraft-tech/lefthook-base/releases)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](docs/development/linting.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/hoverkraft-tech/lefthook-base/issues)
 
 ## Prerequisites
 
@@ -28,12 +28,27 @@ lefthook install
 ```
 
 The pre-commit hook checks staged changes for merge-conflict markers and whitespace errors.
-See [configuration](docs/usage/configuration.md) for pinning and local execution.
+Pin the remote with a release tag or reviewed commit for reproducible use:
+
+```yaml
+remotes:
+  - git_url: https://github.com/hoverkraft-tech/lefthook-base
+    ref: v1.0.0
+    configs:
+      - hooks/pre-commit/lefthook.yml
+```
+
+Run `lefthook run pre-commit` to execute the hook locally.
+
+## Development
+
+Install Git, GNU Make, Docker with BuildKit, and Lefthook.
+Run `make lint`, `make lint-fix`, or `make lint '[.]github/'` from the repository root.
+Open the repository in the dev container for the same tools and commands.
 
 ## Contributing
 
-Open an issue or pull request to discuss changes. The [contributor guide](docs/development/linting.md)
-describes the dev container and local lint commands.
+Open an issue or pull request to discuss changes.
 
 ## Maintainer
 
