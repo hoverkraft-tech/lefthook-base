@@ -16,5 +16,3 @@ jobs:
       pull-requests: write
       security-events: write
       statuses: write
-    with:
-      codeql-languages: '["actions"]'
